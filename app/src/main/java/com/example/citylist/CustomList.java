@@ -22,7 +22,8 @@ public class CustomList extends ArrayAdapter<City> {
         this.cities = cities;
         this.context = context;
     }
-
+    @NonNull
+    @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
         View view = convertView;
 

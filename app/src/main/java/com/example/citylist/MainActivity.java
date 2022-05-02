@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Declare the variables so that you will be able to reference it later.
     ListView cityList;
-    ArrayAdapter<String> cityAdapter;
-    ArrayList<String> dataList;
+    ArrayAdapter<City> cityAdapter;
+    ArrayList<City> cityDataList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         cityList = findViewById(R.id.city_list);
 
-        String cities[] = {"Edmonton", "Vancouver", "Moscow", "Sydney", "Berlin", "Vienna", "Tokyo", "Beijing", "Osaka", "New Delhi", "Dhaka"};
+        String cities[] = {"Edmonton", "Vancouver", "Toronto", "Calgary", "Hamilton", "Waterloo" };
+        String provinces[] = {"AB", "BC", "ON", "AB", "ON", "ON"};
 
-        dataList = new ArrayList<>();
-        dataList.addAll(Arrays.asList(cities));
+        cityDataList = new ArrayList<>();
 
-        cityAdapter = new ArrayAdapter<>(this, R.layout.content, dataList);
+        for(int i=0; i<cities.length; i++){
+            cityDataList.add(new City(cities[i], provinces[i]));
+        }
+
+        cityAdapter = new CustomList(this, cityDataList);
 
         cityList.setAdapter(cityAdapter);
     }
