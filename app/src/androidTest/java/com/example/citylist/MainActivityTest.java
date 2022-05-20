@@ -23,6 +23,6 @@ public class MainActivityTest {
 
     @Test
     public void listGoesOverTheFold() {
-        onView(withText("Hello world!")).check(matches(isDisplayed()));
+        onView(withText("CityList")).check(matches(isDisplayed()));
     }
 }
