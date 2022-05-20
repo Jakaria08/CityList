@@ -73,7 +73,7 @@ public class MainActivityTest {
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
 
         onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); //Check the content on the list - no content in this case
-        Espresso.pressBack();
+        Espresso.pressBack(); //Back button
     }
 
 }
