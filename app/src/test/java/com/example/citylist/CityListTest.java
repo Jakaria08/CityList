@@ -15,6 +15,9 @@ public class CityListTest {
         return new City("Edmonton", "AB");
     }
 
+    /**
+     * Tests if the method <q>add</q> is adding cities to the cityList
+     */
     @Test
     public void testAdd() {
         CityList cityList = mockCityList();
@@ -26,7 +29,9 @@ public class CityListTest {
         assertEquals(2, cityList.getCities('c').size());
         assertTrue(cityList.getCities('c').contains(city));
     }
-
+    /**
+     * Tests if the method <q>delete</q> is deleting cities from the cityList
+     */
     @Test
     public void testDelete() {
         CityList city_List = new CityList();
@@ -36,7 +41,9 @@ public class CityListTest {
         assertTrue(!city_List.getCities('c').contains(city1));
         assertEquals(0, city_List.getCities('c').size());
     }
-
+    /**
+     * Tests if the  method <q>add</q>  is throwing an exception when a city is already in the cityList
+     */
     @Test
     public void testAddException() {
         CityList cityList = new CityList();
@@ -47,7 +54,9 @@ public class CityListTest {
             cityList.add(city);
         });
     }
-
+    /**
+     * Tests if the  method <q>delete</q>  is throwing an exception when trying to delete a city which is not in the cityList
+     */
     @Test
     public void testDeleteException() {
         CityList city_List = new CityList();
@@ -58,7 +67,9 @@ public class CityListTest {
             city_List.delete(city1);
         });
     }
-
+    /**
+     * Tests if the method <q>getCities</q> is working correctly or not
+     */
     @Test
     public void testGetCities() {
         CityList cityList = mockCityList();
@@ -69,6 +80,9 @@ public class CityListTest {
         assertEquals(0, city.compareTo(cityList.getCities('c').get(0)));
         assertEquals(0, mockCity().compareTo(cityList.getCities('c').get(1)));
     }
+    /**
+     * Tests if the method <q>getCities</q> is returning a sorted list of cities.It also tests whether sort by city name and sort by province name is working or not.
+     */
     @Test
     public void testSort() {
         CityList cityList = mockCityList();
@@ -82,6 +96,9 @@ public class CityListTest {
         assertEquals(0, city.compareTo(cityList.getCities('c').get(0)));
         assertEquals(0, mockCity().compareTo(cityList.getCities('c').get(1)));
     }
+    /**
+     * Tests if the method <q>count</q> counting the number of cities in the cityList correctly
+     */
     @Test
     public void testCount(){
         CityList cityList=new CityList();

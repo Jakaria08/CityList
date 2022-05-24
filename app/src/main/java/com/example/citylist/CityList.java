@@ -41,6 +41,8 @@ public class CityList {
     /**
      * This returns a sorted list of cities
      *
+     * @param par specifies whether the list will be sorted by city name or province name<br>
+     *            'c' will imply sort by city name and 'p' will imply sort by province name
      * @return Return the sorted list of cities
      */
     public List<City> getCities(char par) {
@@ -58,7 +60,11 @@ public class CityList {
         return cityList;
     }
 
-
+    /**
+     * This counts the number of cities that is in the <b>cities</b> list
+     *
+     * @return returns the size of the <q>cities</q>  list
+     */
     public int count() {
         return cities.size();
     }
