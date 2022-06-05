@@ -15,6 +15,10 @@ public class CityListTest {
         return new City("Edmonton", "AB");
     }
 
+    /**
+     * This is a test method to add cities
+     */
+
     @Test
     public void testAdd() {
         CityList cityList = mockCityList();
@@ -27,6 +31,10 @@ public class CityListTest {
         assertTrue(cityList.getCities(1).contains(city));
     }
 
+    /**
+     * This is a test method to throw exception for the city that already added
+     */
+
     @Test
     public void testAddException() {
         CityList cityList = new CityList();
@@ -37,6 +45,10 @@ public class CityListTest {
             cityList.add(city);
         });
     }
+
+    /**
+     * This is a test method to delete cities
+     */
 
     @Test
     public void testDelete(){
@@ -50,6 +62,10 @@ public class CityListTest {
         assertTrue(!cityList.getCities(1).contains(city));
     }
 
+    /**
+     * This is a test method to throw exception if a city is deleted that does not exist in the list
+     */
+
     @Test
     public void testDeleteException(){
         CityList cityList = new CityList();
@@ -61,6 +77,10 @@ public class CityListTest {
             cityList.delete(city);
         });
     }
+
+    /**
+     * This is a test method to count number of cities
+     */
 
     @Test
     public void testCount(){
@@ -75,6 +95,10 @@ public class CityListTest {
 
         assertEquals(2, cityList.count());
     }
+
+    /**
+     * This is a test method that checks if the list is sorted either by cities or by provinces
+     */
 
     @Test
     public void testGetCities() {
