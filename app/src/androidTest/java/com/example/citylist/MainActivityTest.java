@@ -10,6 +10,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.espresso.Espresso.onView;
 
 import static org.hamcrest.CoreMatchers.anything;
+import static org.hamcrest.CoreMatchers.is;
 
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
@@ -35,7 +36,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testAddCity(){
+    public void testAddCity() {
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
@@ -43,7 +44,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testClearCity(){
+    public void testClearCity() {
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
@@ -56,8 +57,9 @@ public class MainActivityTest {
         onView(withText("Edmonton")).check(doesNotExist());
 
     }
+
     @Test
-    public void testListView(){
+    public void testListView() {
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
@@ -67,7 +69,7 @@ public class MainActivityTest {
     }
 
     @Test
-    public void testListViewClickAndBack(){
+    public void testListViewClickAndBack() {
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
@@ -76,4 +78,16 @@ public class MainActivityTest {
         Espresso.pressBack(); //Back button
     }
 
+    @Test
+    public void uiTest1() {
+        onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());
+        onView(withId(R.id.layout2)).check(matches(isDisplayed()));
+        onView(withText("Edmonton")).check(matches(isDisplayed()));
+        onView(withId(R.id.back)).perform(click());
+        onView(withId(R.id.layout1)).check(matches(isDisplayed()));
+
+
+    }
 }
