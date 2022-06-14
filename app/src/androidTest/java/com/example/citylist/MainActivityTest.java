@@ -79,15 +79,24 @@ public class MainActivityTest {
     }
 
     @Test
-    public void uiTest1() {
+    public void textTest() {
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
-        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton"));
+        onView(withId(R.id.button_confirm)).perform(click());
         onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());
+        Espresso.pressBack(); 
         onView(withId(R.id.layout2)).check(matches(isDisplayed()));
         onView(withText("Edmonton")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void backButtonTest() {
+        onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton"));
+        onView(withId(R.id.button_confirm)).perform(click());
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());
+        Espresso.pressBack();
         onView(withId(R.id.back)).perform(click());
         onView(withId(R.id.layout1)).check(matches(isDisplayed()));
-
-
     }
 }
