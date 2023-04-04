@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-solved conflict
-=======
-conflict
->>>>>>> ui-test
+solved conflict from main

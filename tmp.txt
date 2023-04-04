@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 conflict
+=======
+tmp file for testing conflict
+>>>>>>> c2ab3c8faf966b819f0c4a605a07154df162b755
