@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CityList</string>
+    <string name="add_city">Add city</string>
+    <string name="clear_all">Clear all</string>
 </resources>
