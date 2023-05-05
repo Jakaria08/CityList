@@ -10,13 +10,31 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import java.util.ArrayList;
 
+/**
+ * Main activity
+ */
 public class MainActivity extends AppCompatActivity {
 
     // Declare the variables so that you will be able to reference it later.
+    /**
+     * List view for showing cities
+     */
     ListView listViewCity;
+    /**
+     * editText for adding new city
+     */
     EditText editTextNewName;
+    /**
+     * container of editText and button
+     */
     LinearLayout llNameField;
+    /**
+     * adapter for listview
+     */
     ArrayAdapter<String> cityAdapter;
+    /**
+     * contains all city names
+     */
     ArrayList<String> dataList;
 
     @Override

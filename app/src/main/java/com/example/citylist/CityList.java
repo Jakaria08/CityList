@@ -12,6 +12,12 @@ public class CityList {
     private final List<City> cities = new ArrayList<>();
 
     /**
+     * default constructor of CityList class
+     */
+    public CityList() {
+    }
+
+    /**
      * This adds a city to the list if that city does not exist
      * @param city
      *      This is the city to add
@@ -24,7 +30,7 @@ public class CityList {
     }
 
     /**
-     *
+     * make a copy of original list then return
      * @return return copy of original list
      */
     public List<City> getOrigCity(){
@@ -46,7 +52,7 @@ public class CityList {
 
 
     /**
-     *
+     * sort cities by city or province
      * @param sortByProvince true for sorting by province else false
      * @return sorted cities without affecting original list
      */
@@ -78,6 +84,7 @@ public class CityList {
     }
 
     /**
+     * calculate total cities
      * @return total number of cities
      */
     public int count(){
