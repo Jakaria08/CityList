@@ -9,6 +9,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.espresso.Espresso.onView;
 
+import static org.hamcrest.CoreMatchers.any;
 import static org.hamcrest.CoreMatchers.anything;
 
 import androidx.test.core.app.ActivityScenario;
@@ -79,6 +80,30 @@ public class MainActivityTest {
 
         onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(1).perform(click()); //Check the content on the list - no content in this case
         Espresso.pressBack(); //Back button
+    }
+
+    @Test
+    public void testActivitySwitch(){
+        //adding city
+        onView(withId(R.id.button_add)).perform(click()); safeSleep();
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka")); safeSleep();
+        onView(withId(R.id.button_confirm)).perform(click());
+
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); safeSleep();
+        onView(withId(R.id.tvCityName)).check(matches(isDisplayed())); //city name button is showing. switched
+        onView(withText("Dhaka")).check(matches(isDisplayed())); safeSleep();
+
+        onView(withId(R.id.buttonBack)).perform(click()); safeSleep();
+
+        safeSleep(2);
+        onView(withId(R.id.city_list)).check(matches(isDisplayed()));
+
+    }
+
+    private void safeSleep(long ...args){
+        try{
+            Thread.sleep(args.length > 0 ? args[0]*1000 : 1500);
+        }catch (Exception ignored){}
     }
 
 }
