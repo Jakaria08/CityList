@@ -69,6 +69,21 @@ public class CityListTest {
     }
 
     @Test
+    public void testCount(){
+        CityList cityList = new CityList();
+        City city = new City("Jessore", "Khulna");
+        City city1 = new City("Chandpur", "Noakhali");
+
+        cityList.add(city);
+        cityList.add(city1);
+        assertEquals(2, cityList.count());
+
+        cityList.delete(city);
+        assertEquals(1, cityList.count());
+
+    }
+
+    @Test
     public void testGetCities() {
         CityList cityList = mockCityList();
         assertEquals(0, mockCity().compareTo(cityList.getCities(0).get(0)));
@@ -87,7 +102,9 @@ public class CityListTest {
         cityList.add(city);
         City city1 = new City("Kumilla", "Adabor");
         cityList.add(city1);
+
         assertEquals(0, city1.compareTo(cityList.getCities(1).get(0)));
+
         assertEquals(0, city.compareTo(cityList.getCities(0).get(0)));
 
 
