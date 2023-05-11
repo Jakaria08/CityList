@@ -12,4 +12,4 @@ Monitor your blood pressure and heart rate data in a simple, attractive, intuiti
 
 
 ## Mockup Design
-![Splash(1)](GitHub/Images/mockup_design.png)
+![Splash(1)](GitHub/Images/mockup.png)
