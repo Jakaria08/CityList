@@ -8,8 +8,8 @@ Monitor your blood pressure and heart rate data in a simple, attractive, intuiti
 * To keep track of data with date and timewise
 
 ## UML Design
-![UML of Heart Tracker](https://i.postimg.cc/qqzHYj9d/not-yet-done.png)
+![UML of Heart Tracker](GitHub/Images/not_yet_done.png)
 
 
 ## Mockup Design
-![Splash(1)](https://i.postimg.cc/bYWvPtLR/Cardiac-Recorder-1.png)
+![Splash(1)](GitHub/Images/CardiacRecorder.png)
