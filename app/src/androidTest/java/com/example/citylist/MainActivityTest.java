@@ -12,8 +12,11 @@ import static androidx.test.espresso.Espresso.onView;
 import static org.hamcrest.CoreMatchers.any;
 import static org.hamcrest.CoreMatchers.anything;
 
+import android.view.View;
+
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.Espresso;
+import androidx.test.espresso.IdlingResource;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -73,7 +76,6 @@ public class MainActivityTest {
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Edmonton")); //Type a city name
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
 
-
         onView(withId(R.id.button_add)).perform(click()); //Click add button to add a city to the list
         onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka")); //Type a city name
         onView(withId(R.id.button_confirm)).perform(click()); //Confirm the city name and add to the list
@@ -85,17 +87,17 @@ public class MainActivityTest {
     @Test
     public void testActivitySwitch(){
         //adding city
-        onView(withId(R.id.button_add)).perform(click()); safeSleep();
-        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka")); safeSleep();
+
+        onView(withId(R.id.button_add)).perform(click()); //safeSleep();
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka")); //safeSleep();
         onView(withId(R.id.button_confirm)).perform(click());
 
-        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); safeSleep();
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); //safeSleep();
         onView(withId(R.id.tvCityName)).check(matches(isDisplayed())); //city name button is showing. switched
-        onView(withText("Dhaka")).check(matches(isDisplayed())); safeSleep();
+        onView(withText("Dhaka")).check(matches(isDisplayed())); //safeSleep();
 
-        onView(withId(R.id.buttonBack)).perform(click()); safeSleep();
-
-        safeSleep(2);
+        onView(withId(R.id.buttonBack)).perform(click()); //safeSleep();
+        //safeSleep(2);
         onView(withId(R.id.city_list)).check(matches(isDisplayed()));
 
     }

@@ -103,10 +103,9 @@ public class CityListTest {
 
         cityList.add(new City("Meherpur","Khulna"));
 
-
         //sort by city name
         List<City> sortedList = cityList.getCities();
-        assertTrue(isSorted(cityList.getOrigCity(),sortedList,true));
+        assertTrue( isSorted(cityList.getOrigCity(),sortedList,true) );
 
 //        for (City city : sortedList) {
 //            System.out.printf("%s - %s\n",city.getCityName(),city.getProvinceName());
@@ -122,6 +121,7 @@ public class CityListTest {
 
         if(byName) Collections.sort(oldList);
         else oldList.sort(Comparator.comparing(City::getProvinceName));
+            //oldList.sort(Comparator.comparing(City::getProvinceName));
 
         for(int i=0; i<oldList.size(); i++){
             if(!oldList.get(i).allEquals(newList.get(i))) return false;
