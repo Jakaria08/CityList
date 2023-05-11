@@ -17,7 +17,7 @@ Monitor your blood pressure and heart rate data in a simple, attractive, intuiti
 
 ## 🔗 Links
 <p align="center" >
-  <a href= 'https://github.com/abusaeed2433/CityList/wiki'>
-    <img src = './GitHub/Images/view_more.png'/>
-  </a>
+	<a href= 'https://github.com/abusaeed2433/CityList/wiki' style="height: 64px; width: 200px;">
+		<img src = './GitHub/Images/view_more.png'/>
+	</a>
 </p>
