@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import java.util.ArrayList;
+import android.content.Intent;
+import android.widget.AdapterView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 cityAdapter.clear();
+            }
+        });
+
+        cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent(MainActivity.this,ShowActivity.class);
+                intent.putExtra("cityname",dataList.get(i));
+                startActivity(intent);
             }
         });
 
